@@ -32,16 +32,18 @@ main();
 const asyncFunc = function(callback) {
   setTimeout(() => {
     console.log('fromAsyncFunc');
-    callback();
+    // ici, la fonction callback passée en argument est appelée après 100 millisecondes
+    callback({ res: 'bar' });
   }, 100);
 }
 
 
 const main = function() {
-// Ici, on passe une fonction sous forme de arrow function comme paramètre à "asyncFunc".
+// Ici, on passe une fonction comme paramètre à "asyncFunc".
 // Par convention, une fonction callback prend une potentielle erreur en premier paramètre
 // et le retour de la fonction parente comme deuxième paramètre.
-  asyncFunc((err, res) => {
+  asyncFunc(function (err, res) {
+    // une fois la fonction callback appelée dans asyncFunc, le code contenu ici est executé.
     if (err) {
       // Handle Error
     }
