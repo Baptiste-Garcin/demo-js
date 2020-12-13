@@ -10,6 +10,8 @@ class DummyComponent extends React.Component {
     }
   }
 
+  // Ici, on utilise une methode du cycle de vie du composant React. Celle-ci est déclenché une fois que le componsant est 'monté',
+  // c'est à dire qu'il a été affiché une première fois. On utilise cette méthode précisément pour qu'une page (même incomplète) soit affiché à l'utilisateur
   componentDidMount = async () => {
     // Ici, on appelle le endpoint GET /user de l'API en lui passant this.proos.userId comme paramètre d'URL
     const user = await axios.get(`/user/${this.proos.userId}`)
