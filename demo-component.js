@@ -9,7 +9,7 @@ class DummyComponent extends React.Component {
     }
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
       // Ici, c'est une syntaxe un peu particulière, elle permet de définir dynamiquement la clé d'un objet.
       // Selon que la fonction est appelée à partir de l'input password ou email, event.target.name sera "email" ou "password"
